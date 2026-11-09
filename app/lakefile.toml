@@ -1,6 +1,6 @@
-name = "PrismTemplateContract"
+name = "PrismShippingTier"
 version = "0.1.0"
-defaultTargets = ["PrismTemplateContract"]
+defaultTargets = ["PrismShippingTier"]
 
 [[lean_lib]]
-name = "PrismTemplateContract"
+name = "PrismShippingTier"

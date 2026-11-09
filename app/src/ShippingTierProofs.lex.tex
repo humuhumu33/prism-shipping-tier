@@ -1,0 +1,104 @@
+\begin{lexlean}{ShippingTierProofs}
+\useglossary{lexlean.std.bool@1.2.0}
+\useglossary{lexlean.std.nat@1.2.0}
+\useglossary{prism.arch@1.0.0}
+\importmodule{ShippingTier}
+\title{Text application model}
+\begin{semanticmodule}
+definition{
+  name: breaksInv001,
+  parameters: [request : ShippingTier::Request],
+  result: Bool,
+  body: (((((1 <=? (project request weight)) && (1 <=? (project request distance))) && (1 <=? (project request items))) && (30000 <? (project request weight))) && (not ((ShippingTier::judge request) =? (ShippingTier::answerFreight))))
+}
+
+theorem{
+  name: inv001Holds,
+  parameters: [request : ShippingTier::Request],
+  statement: ((breaksInv001 request) = false),
+  proof: linear_arithmetic{
+    definitions: [
+      ShippingTier::answerExpress,
+      ShippingTier::answerFreight,
+      ShippingTier::answerRefused,
+      ShippingTier::answerStandard,
+      ShippingTier::judge,
+      ShippingTier::membershipGold,
+      ShippingTier::membershipNone,
+      ShippingTier::membershipPlatinum,
+      ShippingTier::membershipSilver,
+      ShippingTier::rule1,
+      ShippingTier::rule2,
+      ShippingTier::rule3,
+      ShippingTier::rule4,
+      breaksInv001
+    ]
+  },
+  axioms: [Quot.sound, propext]
+}
+
+definition{
+  name: breaksInv002,
+  parameters: [request : ShippingTier::Request],
+  result: Bool,
+  body: (((((1 <=? (project request weight)) && (1 <=? (project request distance))) && (1 <=? (project request items))) && (30000 <? (project request weight))) && ((ShippingTier::judge request) =? (ShippingTier::answerExpress)))
+}
+
+theorem{
+  name: inv002Holds,
+  parameters: [request : ShippingTier::Request],
+  statement: ((breaksInv002 request) = false),
+  proof: linear_arithmetic{
+    definitions: [
+      ShippingTier::answerExpress,
+      ShippingTier::answerFreight,
+      ShippingTier::answerRefused,
+      ShippingTier::answerStandard,
+      ShippingTier::judge,
+      ShippingTier::membershipGold,
+      ShippingTier::membershipNone,
+      ShippingTier::membershipPlatinum,
+      ShippingTier::membershipSilver,
+      ShippingTier::rule1,
+      ShippingTier::rule2,
+      ShippingTier::rule3,
+      ShippingTier::rule4,
+      breaksInv002
+    ]
+  },
+  axioms: [Quot.sound, propext]
+}
+
+definition{
+  name: breaksInv003,
+  parameters: [request : ShippingTier::Request],
+  result: Bool,
+  body: (((((((1 <=? (project request weight)) && (1 <=? (project request distance))) && (1 <=? (project request items))) && ((project request membership) =? (ShippingTier::membershipNone))) && ((project request weight) <=? 30000)) && ((project request items) <=? 50)) && ((ShippingTier::judge request) =? (ShippingTier::answerExpress)))
+}
+
+theorem{
+  name: inv003Holds,
+  parameters: [request : ShippingTier::Request],
+  statement: ((breaksInv003 request) = false),
+  proof: linear_arithmetic{
+    definitions: [
+      ShippingTier::answerExpress,
+      ShippingTier::answerFreight,
+      ShippingTier::answerRefused,
+      ShippingTier::answerStandard,
+      ShippingTier::judge,
+      ShippingTier::membershipGold,
+      ShippingTier::membershipNone,
+      ShippingTier::membershipPlatinum,
+      ShippingTier::membershipSilver,
+      ShippingTier::rule1,
+      ShippingTier::rule2,
+      ShippingTier::rule3,
+      ShippingTier::rule4,
+      breaksInv003
+    ]
+  },
+  axioms: [Quot.sound, propext]
+}
+\end{semanticmodule}
+\end{lexlean}

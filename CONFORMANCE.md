@@ -18,11 +18,13 @@ The three honesty levels (R2):
 `cargo xtask audit-limits` fails if any code path returns an error the
 model does not sanction.
 
-## contract
+## shipping_tier
 
 | ID | Level | Statement |
 | --- | --- | --- |
-| `TC-01` | `build` | The checker answers conformant exactly when every universal policy file's observed digest equals its locked digest |
+| `ST-01` | `build` | The app always answers freight when weight is above 30000 |
+| `ST-02` | `build` | The app never answers express when weight is above 30000 |
+| `ST-03` | `build` | The app never answers express when membership is none and weight is at most 30000 and items is at most 50 |
 
 ## Cited authorities
 
